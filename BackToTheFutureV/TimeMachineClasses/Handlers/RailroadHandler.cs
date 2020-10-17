@@ -43,19 +43,6 @@ namespace BackToTheFutureV.TimeMachineClasses.Handlers
 
             if (!Properties.IsOnTracks)
                 return;
-
-            if (customTrain.IsRogersSierra)
-            {
-                _forceFreightTrain = customTrain.RogersSierra.IsOnTrainMission;
-
-                if (Properties.TimeTravelType == TimeTravelType.Instant && customTrain.RogersSierra.IsOnTrainMission)
-                    MissionHandler.TrainMission.End();
-
-                customTrain.RogersSierra.RejectAttach = true;
-
-                Stop();                
-                return;
-            }
                 
             switch (Properties.TimeTravelType)
             {
@@ -167,10 +154,7 @@ namespace BackToTheFutureV.TimeMachineClasses.Handlers
 
         public override void KeyDown(Keys key)
         {
-            if (!Properties.IsOnTracks || !customTrain.IsRogersSierra)
-                return;
-            
-            customTrain.RogersSierra.KeyDown(key);
+
         }
 
         public override void Process()
@@ -185,23 +169,7 @@ namespace BackToTheFutureV.TimeMachineClasses.Handlers
 
             if (Properties.IsOnTracks)
             {
-                Properties.IsAttachedToRogersSierra = customTrain.IsRogersSierra;
-
-                if (Properties.IsAttachedToRogersSierra)
-                {
-                    if (Game.IsControlPressed(GTA.Control.VehicleAccelerate) && Main.PlayerVehicle == Vehicle && Vehicle.IsEngineRunning && !customTrain.RogersSierra.IsOnTrainMission)
-                    {
-                        customTrain.SwitchToRegular();
-                        return;
-                    }
-
-                    if (customTrain.RogersSierra.Locomotive.Speed > 0 && Utils.EntitySpeedVector(customTrain.RogersSierra.Locomotive).Y < 0)
-                        customTrain.SwitchToRegular();
-
-                    return;
-                }
-                else
-                    customTrain.IsAccelerationOn = Main.PlayerVehicle == Vehicle && Vehicle.IsVisible && Vehicle.IsEngineRunning;
+                customTrain.IsAccelerationOn = Main.PlayerVehicle == Vehicle && Vehicle.IsVisible && Vehicle.IsEngineRunning;
 
                 if (Main.PlayerVehicle == Vehicle)
                     Function.Call(Hash.DISABLE_CONTROL_ACTION, 27, 59, true);
@@ -269,11 +237,8 @@ namespace BackToTheFutureV.TimeMachineClasses.Handlers
 
                 customTrain.OnVehicleAttached -= customTrain_OnVehicleAttached;
                 customTrain.OnTrainDeleted -= customTrain_OnTrainDeleted;
-
-                if (customTrain.IsRogersSierra)
-                    customTrain.SwitchToRegular();
-
-                if (customTrain.Exists && !customTrain.IsRogersSierra)
+                
+                if (customTrain.Exists)
                     customTrain.DeleteTrain();
 
                 customTrain = null;

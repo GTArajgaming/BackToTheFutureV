@@ -20,7 +20,6 @@ using BackToTheFutureV.Players;
 using System.Collections.Generic;
 using BackToTheFutureV.TimeMachineClasses.Handlers;
 using BackToTheFutureV.Menu;
-using RogersSierraRailway;
 using GTA.Math;
 
 namespace BackToTheFutureV
