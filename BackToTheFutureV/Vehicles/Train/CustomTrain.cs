@@ -28,9 +28,6 @@ namespace BackToTheFutureV.Utility
 
         public SetWheelie SetWheelie;
 
-        private float _wheelieRotX;
-        private float _wheeliePosZ = -0.35f;
-
         public Vehicle Train;
         public bool Direction { get; set; }
         public Vector3 Position { get { return Train.Position; } set { Function.Call(Hash.SET_MISSION_TRAIN_COORDS, Train, value.X, value.Y, value.Z); } }
