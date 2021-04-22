@@ -119,7 +119,7 @@ namespace BackToTheFutureV
             BTTF1,
             BTTF2,
             BTTF3,
-            
+            KATT
         }
 
         internal enum ModState

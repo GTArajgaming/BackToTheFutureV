@@ -27,7 +27,7 @@ namespace BackToTheFutureV
         {
             Subtitle = TextHandler.GetLocalizedText("SelectOption");
 
-            spawnBTTF = NewListItem("Spawn", TextHandler.GetLocalizedText("DMC12", "BTTF1", "BTTF1H", "BTTF2", "BTTF3", "BTTF3RR"));
+            spawnBTTF = NewListItem("Spawn", TextHandler.GetLocalizedText("DMC12", "BTTF1", "BTTF1H", "BTTF2", "BTTF3", "BTTF3RR", "KATT"));
             spawnBTTF.ItemChanged += SpawnBTTF_ItemChanged;
             spawnBTTF.Description = GetItemValueDescription("Spawn", "DMC12");
 
@@ -67,7 +67,9 @@ namespace BackToTheFutureV
                 case 5:
                     spawnBTTF.Description = GetItemValueDescription(sender, "BTTF3RR");
                     break;
-                
+                case 6:
+                    spawnBTTF.Description = GetItemValueDescription(sender, "KATT");
+                    break;
             }
 
             Recalculate();
@@ -106,7 +108,9 @@ namespace BackToTheFutureV
                     case 5:
                         wormholeType = WormholeType.BTTF3;
                         break;
-                    
+                    case 6:
+                        wormholeType = WormholeType.KATT;
+                        break;
                 }
 
                 if (ModSettings.CinematicSpawn)

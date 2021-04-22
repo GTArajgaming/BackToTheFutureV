@@ -58,7 +58,13 @@ namespace BackToTheFutureV
                     Wheel = WheelType.Red;
                     SuspensionsType = SuspensionsType.LiftFront;
                     break;
-               
+                case WormholeType.KATT:
+                    Reactor = ReactorType.MrFusion;
+                    Exhaust = ExhaustType.None;
+                    Plate = PlateType.NOTIME;
+
+                    HoverUnderbody = ModState.On;
+                    break;
             }
         }
 

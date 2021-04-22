@@ -23,7 +23,8 @@ namespace BackToTheFutureV
                         return 88;
                     case WormholeType.BTTF3:
                         return Properties.IsOnTracks ? 82 : 65;
-                    
+                    case WormholeType.KATT:
+                        return 65;
                     default:
                         return 88;
                 }
@@ -46,7 +47,8 @@ namespace BackToTheFutureV
                         return 3900;
                     case WormholeType.BTTF3:
                         return 5200;
-                    
+                    case WormholeType.KATT:
+                        return 2500;
                     default:
                         return 5200;
                 }
@@ -81,7 +83,8 @@ namespace BackToTheFutureV
                         return "bttf_wormhole_blue";
                     case WormholeType.BTTF3:
                         return "bttf_wormhole_red";
-                    
+                    case WormholeType.KATT:
+                        return "bttf_wormhole";
                     default:
                         return "bttf_wormhole";
                 }
@@ -100,7 +103,8 @@ namespace BackToTheFutureV
                         return 1;
                     case WormholeType.BTTF3:
                         return 2;
-                    
+                    case WormholeType.KATT:
+                        return 0;
                     default:
                         return 0;
                 }
@@ -119,7 +123,8 @@ namespace BackToTheFutureV
                         return TimeHandler.IsNight ? ModelHandler.WormholeBlueNight : ModelHandler.WormholeBlue;
                     case WormholeType.BTTF3:
                         return TimeHandler.IsNight ? ModelHandler.WormholeRedNight : ModelHandler.WormholeRed;
-                    
+                    case WormholeType.KATT:
+                        return TimeHandler.IsNight ? ModelHandler.WormholeVioletNight : ModelHandler.WormholeViolet;
                     default:
                         return TimeHandler.IsNight ? ModelHandler.WormholeVioletNight : ModelHandler.WormholeViolet;
                 }
@@ -138,7 +143,8 @@ namespace BackToTheFutureV
                         return TimeHandler.IsNight ? ModelHandler.SparkNightModel : ModelHandler.SparkModel;
                     case WormholeType.BTTF3:
                         return TimeHandler.IsNight ? ModelHandler.SparkRedNightModel : ModelHandler.SparkRedModel;
-                    
+                    case WormholeType.KATT:
+                        return TimeHandler.IsNight ? ModelHandler.SparkModel : ModelHandler.SparkModel;
                     default:
                         return TimeHandler.IsNight ? ModelHandler.SparkNightModel : ModelHandler.SparkModel;
                 }

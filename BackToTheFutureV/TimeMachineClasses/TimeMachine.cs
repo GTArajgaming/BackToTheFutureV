@@ -400,7 +400,10 @@ namespace BackToTheFutureV
                             Blip.Color = BlipColor.Red;
                         }
                         break;
-                    
+                    case WormholeType.KATT:
+                        Blip.Name = TextHandler.GetLocalizedText("KATT");
+                        Blip.Color = BlipColor.Pink;
+                        break;
                 }
             }
         }

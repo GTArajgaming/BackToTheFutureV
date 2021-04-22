@@ -268,8 +268,8 @@ namespace BackToTheFutureV
             // Handle coil flickering for BTTF3
             if (Mods.IsDMC12 && (Mods.WormholeType == WormholeType.BTTF3 || Properties.ReactorState != ReactorState.Closed))
                 HandleCoilFlicker();
-           
-                
+            if (Mods.IsDMC12 && (Mods.WormholeType == WormholeType.KATT || Properties.ReactorState != ReactorState.Closed))
+                HandleCoilFlicker();
 
             if (Properties.IsFueled || Properties.PhotoWormholeActive)
                 HandleSparks();
